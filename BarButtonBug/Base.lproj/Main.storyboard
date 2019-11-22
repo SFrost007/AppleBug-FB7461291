@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="BarButtonBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oF4-IV-ejT">
+                                <rect key="frame" x="85.5" y="246" width="243" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Present Modally With Storyboard"/>
+                                <connections>
+                                    <segue destination="khq-WW-tsS" kind="presentation" id="PDn-BD-GE0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipu-EP-Y7p">
+                                <rect key="frame" x="16" y="108" width="382" height="122"/>
+                                <string key="text">When two layers of modally presented view controllers are displayed via Storyboard initialisation only, the margins on the second NavigationBar are incorrect and cause BarButtonItems to be placed at the very edge of the view:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When the same view hierarchy is created programmatically the bug does not occur:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a33-gP-HNc">
+                                <rect key="frame" x="16" y="340" width="382" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Applying a UIAppearance proxy to color the NavigationBars makes this problem even more apparent:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYM-dk-GRq">
+                                <rect key="frame" x="16" y="491" width="382" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIT-5b-rQ5">
+                                <rect key="frame" x="136.5" y="568" width="141" height="30"/>
+                                <state key="normal" title="Apply UIAppearance"/>
+                                <connections>
+                                    <action selector="applyAppearanceTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kJX-XY-XvR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-Se-3rv">
+                                <rect key="frame" x="90" y="397" width="234" height="30"/>
+                                <state key="normal" title="Present Modally Programmatically"/>
+                                <connections>
+                                    <action selector="presentModallyProgrammaticallyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sSc-N2-a0u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a33-gP-HNc" secondAttribute="trailing" constant="16" id="4oQ-jp-6BX"/>
+                            <constraint firstItem="oF4-IV-ejT" firstAttribute="top" secondItem="ipu-EP-Y7p" secondAttribute="bottom" constant="16" id="5XF-6f-RX9"/>
+                            <constraint firstItem="vIT-5b-rQ5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9nu-U1-tv1"/>
+                            <constraint firstItem="ipu-EP-Y7p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="Doj-f9-bqE"/>
+                            <constraint firstItem="2VY-Se-3rv" firstAttribute="top" secondItem="a33-gP-HNc" secondAttribute="bottom" constant="16" id="ONw-RZ-7SB"/>
+                            <constraint firstItem="2VY-Se-3rv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P6s-50-vJI"/>
+                            <constraint firstItem="a33-gP-HNc" firstAttribute="top" secondItem="oF4-IV-ejT" secondAttribute="bottom" constant="64" id="PMH-Sw-ABs"/>
+                            <constraint firstItem="ipu-EP-Y7p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Rfg-k0-AeS"/>
+                            <constraint firstItem="yYM-dk-GRq" firstAttribute="top" secondItem="2VY-Se-3rv" secondAttribute="bottom" constant="64" id="SPE-oX-m2Y"/>
+                            <constraint firstItem="oF4-IV-ejT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZIX-kn-im2"/>
+                            <constraint firstItem="vIT-5b-rQ5" firstAttribute="top" secondItem="yYM-dk-GRq" secondAttribute="bottom" constant="16" id="d2e-kK-ELq"/>
+                            <constraint firstAttribute="trailing" secondItem="yYM-dk-GRq" secondAttribute="trailing" constant="16" id="nFv-vO-HBg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ipu-EP-Y7p" secondAttribute="trailing" constant="16" id="s1M-1F-Fbc"/>
+                            <constraint firstItem="a33-gP-HNc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wVO-zJ-1r3"/>
+                            <constraint firstItem="yYM-dk-GRq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ypB-nK-0JM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+        <!--First Modal-->
+        <scene sceneID="fLU-BX-XRy">
+            <objects>
+                <viewController id="71S-VM-Md0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wsN-Ka-Bbg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBd-zp-hHN">
+                                <rect key="frame" x="153" y="406" width="108" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Another Modal"/>
+                                <connections>
+                                    <segue destination="qIs-nc-EcU" kind="presentation" id="5Nx-T9-a1F"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjK-Dk-zdb">
+                                <rect key="frame" x="16" y="72" width="382" height="61"/>
+                                <string key="text">(Note: Done button is not connected to any code, and purely decorative. View can still be dismissed with an interactive downwards swipe on iOS 13+)</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Fim-vE-pDy" firstAttribute="trailing" secondItem="bjK-Dk-zdb" secondAttribute="trailing" constant="16" id="Evs-Kv-Ngi"/>
+                            <constraint firstItem="iBd-zp-hHN" firstAttribute="centerY" secondItem="wsN-Ka-Bbg" secondAttribute="centerY" id="PUJ-AC-9wp"/>
+                            <constraint firstItem="bjK-Dk-zdb" firstAttribute="top" secondItem="Fim-vE-pDy" secondAttribute="top" constant="16" id="RxE-ij-5L9"/>
+                            <constraint firstItem="bjK-Dk-zdb" firstAttribute="leading" secondItem="Fim-vE-pDy" secondAttribute="leading" constant="16" id="ZAn-Ic-C24"/>
+                            <constraint firstItem="iBd-zp-hHN" firstAttribute="centerX" secondItem="wsN-Ka-Bbg" secondAttribute="centerX" id="d14-S6-OAa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fim-vE-pDy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="First Modal" id="UfO-mS-5Xn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="DNQ-sd-aoQ"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axu-bz-G7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="139"/>
+        </scene>
+        <!--Second Modal-->
+        <scene sceneID="2Ix-Lc-VBx">
+            <objects>
+                <viewController id="qNl-pY-62E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xcG-Qr-eIt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAM-rU-4Kq">
+                                <rect key="frame" x="16" y="380.5" width="382" height="81.5"/>
+                                <string key="text">The navigation bar above appears to have broken margins, causing its height to be compressed and right bar button item to be positioned without padding.</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vw-0g-tR4">
+                                <rect key="frame" x="16" y="72" width="382" height="81.5"/>
+                                <string key="text">(Note: Buttons are again not connected to any code and only decorative. View can still be dismissed with an interactive downwards swipe on iOS 13+)</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6vw-0g-tR4" firstAttribute="top" secondItem="LRZ-WH-OQd" secondAttribute="top" constant="16" id="Va4-Vy-QUs"/>
+                            <constraint firstItem="fAM-rU-4Kq" firstAttribute="centerY" secondItem="xcG-Qr-eIt" secondAttribute="centerY" id="dHm-Bg-XIa"/>
+                            <constraint firstItem="fAM-rU-4Kq" firstAttribute="leading" secondItem="LRZ-WH-OQd" secondAttribute="leading" constant="16" id="kNv-cT-fTc"/>
+                            <constraint firstItem="6vw-0g-tR4" firstAttribute="leading" secondItem="LRZ-WH-OQd" secondAttribute="leading" constant="16" id="llR-zR-mfF"/>
+                            <constraint firstAttribute="trailing" secondItem="6vw-0g-tR4" secondAttribute="trailing" constant="16" id="uHR-gM-OiQ"/>
+                            <constraint firstItem="LRZ-WH-OQd" firstAttribute="trailing" secondItem="fAM-rU-4Kq" secondAttribute="trailing" constant="16" id="vn6-U9-XSN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LRZ-WH-OQd"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Second Modal" id="uq9-KP-cSa">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9xP-ow-tlc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="U3Z-BA-P1M"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWa-Hq-ezh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3354" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y0j-ZQ-HkI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khq-WW-tsS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nOR-F8-RpN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="71S-VM-Md0" kind="relationship" relationship="rootViewController" id="DF6-bs-dVs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mp-jt-SQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7XN-Es-gIr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qIs-nc-EcU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1R6-DZ-avT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qNl-pY-62E" kind="relationship" relationship="rootViewController" id="RZr-ch-AWB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfN-p2-k8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2539" y="139"/>
+        </scene>
+    </scenes>
+</document>
